@@ -57,6 +57,21 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		797525EB2ADFE2FD00234319 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				797525EC2ADFE30700234319 /* Images */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		797525EC2ADFE30700234319 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		79F461632AD681820092923B = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +91,7 @@
 		79F4616E2AD681820092923B /* Juego de memoria */ = {
 			isa = PBXGroup;
 			children = (
+				797525EB2ADFE2FD00234319 /* Assets */,
 				797525E52ADFDB2500234319 /* Resources */,
 				79F4616F2AD681820092923B /* AppDelegate.swift */,
 				79F461712AD681820092923B /* SceneDelegate.swift */,

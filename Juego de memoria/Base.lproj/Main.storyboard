@@ -61,18 +61,27 @@
         <!--Juego-->
         <scene sceneID="ldl-Lo-4Wy">
             <objects>
-                <viewController title="Juego" id="Xwd-kL-Ap7" sceneMemberID="viewController">
+                <viewController title="Juego" id="Xwd-kL-Ap7" customClass="JuegoViewController" customModule="Juego_de_memoria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PBh-ZY-Eud">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-2q-Pun">
+                                <rect key="frame" x="69" y="277" width="256" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="QXf-iA-7lW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rbo-Uc-M8R"/>
+                    <connections>
+                        <outlet property="RandomImageShown" destination="Ios-2q-Pun" id="0z6-tY-qUe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0O2-fE-3ut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="-52"/>
+            <point key="canvasLocation" x="1086.9565217391305" y="-52.232142857142854"/>
         </scene>
     </scenes>
     <resources>
