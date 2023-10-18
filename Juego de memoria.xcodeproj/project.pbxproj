@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		797525E32ADFD63300234319 /* JuegoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797525E22ADFD63300234319 /* JuegoViewController.swift */; };
+		797525E92ADFDCD500234319 /* bBaiknya.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 797525E82ADFDCD500234319 /* bBaiknya.ttf */; };
 		79F461702AD681820092923B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F4616F2AD681820092923B /* AppDelegate.swift */; };
 		79F461722AD681820092923B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F461712AD681820092923B /* SceneDelegate.swift */; };
 		79F461742AD681820092923B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F461732AD681820092923B /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		797525E22ADFD63300234319 /* JuegoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuegoViewController.swift; sourceTree = "<group>"; };
+		797525E82ADFDCD500234319 /* bBaiknya.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bBaiknya.ttf; path = ../../../../../../Downloads/bBaiknya.ttf; sourceTree = "<group>"; };
 		79F4616C2AD681820092923B /* Juego de memoria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Juego de memoria.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79F4616F2AD681820092923B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79F461712AD681820092923B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		797525E52ADFDB2500234319 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				797525E62ADFDB3200234319 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		797525E62ADFDB3200234319 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				797525E82ADFDCD500234319 /* bBaiknya.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		79F461632AD681820092923B = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +76,7 @@
 		79F4616E2AD681820092923B /* Juego de memoria */ = {
 			isa = PBXGroup;
 			children = (
+				797525E52ADFDB2500234319 /* Resources */,
 				79F4616F2AD681820092923B /* AppDelegate.swift */,
 				79F461712AD681820092923B /* SceneDelegate.swift */,
 				79F461732AD681820092923B /* ViewController.swift */,
@@ -63,6 +84,7 @@
 				79F461782AD681830092923B /* Assets.xcassets */,
 				79F4617A2AD681830092923B /* LaunchScreen.storyboard */,
 				79F4617D2AD681830092923B /* Info.plist */,
+				797525E22ADFD63300234319 /* JuegoViewController.swift */,
 			);
 			path = "Juego de memoria";
 			sourceTree = "<group>";
@@ -125,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79F4617C2AD681830092923B /* LaunchScreen.storyboard in Resources */,
+				797525E92ADFDCD500234319 /* bBaiknya.ttf in Resources */,
 				79F461792AD681830092923B /* Assets.xcassets in Resources */,
 				79F461772AD681820092923B /* Main.storyboard in Resources */,
 			);
@@ -138,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79F461742AD681820092923B /* ViewController.swift in Sources */,
+				797525E32ADFD63300234319 /* JuegoViewController.swift in Sources */,
 				79F461702AD681820092923B /* AppDelegate.swift in Sources */,
 				79F461722AD681820092923B /* SceneDelegate.swift in Sources */,
 			);
