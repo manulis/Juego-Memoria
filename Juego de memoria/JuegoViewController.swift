@@ -15,7 +15,6 @@ class JuegoViewController:  UIViewController {
     var imagesCorrectas = [""]
     let endpoint = URL(string: "https://dog.ceo/api/breeds/image/random")
     
-    
     struct  image:Codable {
         let message:String
     }
@@ -26,49 +25,28 @@ class JuegoViewController:  UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+            callApi()
         
-        
-    
-       showImages()
-        
-        
+            
+
     }
     
     
     func showImages(){
-        
-        
-        
-        
-        for i in 0...5{
-            
-            imagesCorrectas.insert("https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*", at:i )
-            
-            images.append(imagesCorrectas[i])
-        
-            let url = URL(string: imagesCorrectas[i] )
-            
-            let data = try? Data(contentsOf: url!)
-            
-            RandomImageShown.image = UIImage(data: data!)
-        }
-            
-        
-        callApi()
-        
-        
+        imagesCorrectas.insert(images[0], at: 0)
+        let url = URL(string: imagesCorrectas[0])
+        let data = try? Data(contentsOf: url!)
+        RandomImageShown.image = UIImage(data: data!)
     }
-    
-    
     
     func callApi() {
         
         guard let UrlEndpoint = endpoint else {
-            
             return
         }
         
-        let task = URLSession.shared.dataTask(with: UrlEndpoint){
+       let task = URLSession.shared.dataTask(with: UrlEndpoint){
             data, response, error in
             
             if let data = data, let string = String(data: data, encoding: .utf8){
@@ -84,21 +62,21 @@ class JuegoViewController:  UIViewController {
                           
                         print(type(of:tasks.message))
                         
-                        self.images.insert(tasks.message, at:1)
+                        self.images.insert(tasks.message, at:0)
                         
+                        self.showImages()
+      
                       }catch{
-                          print(error)
+                        
+                        
+                        print(error)
                       }
                   }
-            
-            print(self.images[1])
-            
-        }
 
+            }
+            
+       
         task.resume()
         
     }
-  
 }
-
-

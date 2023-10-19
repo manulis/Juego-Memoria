@@ -15,22 +15,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
- 
-     
         VisualConf()
         
     }
     
-    
-   
-
     
     func VisualConf()  {
       
         JugarButton.layer.cornerRadius = 30.0
     }
 
-
 }
-
-
