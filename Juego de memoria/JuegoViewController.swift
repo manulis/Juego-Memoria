@@ -9,74 +9,77 @@ import Foundation
 import UIKit
 
 class JuegoViewController:  UIViewController {
-    
-    
-    var images = [""]
-    var imagesCorrectas = [""]
+
     let endpoint = URL(string: "https://dog.ceo/api/breeds/image/random")
+    
+    var imagesCorrectas:[String] = []
+
+    var images:[String] = []
     
     struct  image:Codable {
         let message:String
     }
 
-    
     @IBOutlet weak var RandomImageShown: UIImageView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-            callApi()
         
-            
+            CallApi()
 
+            sleep(5)
+        
+            showImages(i: 10)
     }
     
-    
-    func showImages(){
-        imagesCorrectas.insert(images[0], at: 0)
-        let url = URL(string: imagesCorrectas[0])
+
+    func showImages(i:Int){
+        imagesCorrectas.append(images[i])
+        let url = URL(string: images[i])
         let data = try? Data(contentsOf: url!)
         RandomImageShown.image = UIImage(data: data!)
     }
     
-    func callApi() {
+    func CallApi(){
         
-        guard let UrlEndpoint = endpoint else {
-            return
-        }
-        
-       let task = URLSession.shared.dataTask(with: UrlEndpoint){
-            data, response, error in
+        for i in 0...10{
             
-            if let data = data, let string = String(data: data, encoding: .utf8){
-                print(string)
+            guard let UrlEndpoint = endpoint else {
+                return
             }
             
-            let decoder = JSONDecoder()
+           URLSession.shared.dataTask(with: UrlEndpoint){
+                data, response, error in
+                
+                if let data = data, let string = String(data: data, encoding: .utf8){
+                    print(string)
+                }
+                
+                let decoder = JSONDecoder()
 
-                  if let data = data{
-                      do{
+                      if let data = data{
                         
-                        let tasks = try decoder.decode(image.self, from: data)
-                          
-                        print(type(of:tasks.message))
-                        
-                        self.images.insert(tasks.message, at:0)
-                        
-                        self.showImages()
-      
-                      }catch{
-                        
-                        
-                        print(error)
+                          do{
+                            
+                            let tasks = try decoder.decode(image.self, from: data)
+                              
+                            print(tasks.message)
+                            
+                            self.images.append(tasks.message)
+                           
+                            print(i)
+                            
+                            
+          
+                          }catch{
+                            print(error)
+                          }
                       }
-                  }
-
-            }
             
-       
-        task.resume()
-        
+            }.resume()
+            
+        }
+               
     }
+        
 }
