@@ -20,6 +20,7 @@ class JuegoViewController:  UIViewController {
         let message:String
     }
 
+    @IBOutlet weak var EmpezarButton: UIButton!
     @IBOutlet weak var RandomImageShown: UIImageView!
     
     override func viewDidLoad() {
@@ -29,15 +30,36 @@ class JuegoViewController:  UIViewController {
 
             sleep(5)
         
-            showImages(i: 10)
+            EmpezarButton.layer.cornerRadius = 30.0
+            
+            RandomImageShown.isHidden = true
+
+    }
+    
+    
+    @IBAction func EmpezarJuego(_ sender: Any) {
+        
+        EmpezarButton.isHidden = true
+        RandomImageShown.isHidden = false
+    
+        for i in 0...5{
+            
+            showImages(i: i)
+            
+        }
+        
     }
     
 
     func showImages(i:Int){
+        
         imagesCorrectas.append(images[i])
         let url = URL(string: images[i])
         let data = try? Data(contentsOf: url!)
         RandomImageShown.image = UIImage(data: data!)
+        
+        
+        
     }
     
     func CallApi(){
@@ -68,8 +90,6 @@ class JuegoViewController:  UIViewController {
                             self.images.append(tasks.message)
                            
                             print(i)
-                            
-                            
           
                           }catch{
                             print(error)

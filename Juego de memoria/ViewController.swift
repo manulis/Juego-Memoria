@@ -7,22 +7,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+public class ViewController: UIViewController {
 
     
     @IBOutlet weak var JugarButton: UIButton!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
-        VisualConf()
+        VisualConf(Button: JugarButton)
         
     }
     
     
-    func VisualConf()  {
+    public func VisualConf(Button: UIButton)  {
       
-        JugarButton.layer.cornerRadius = 30.0
+        Button.layer.cornerRadius = 30.0
     }
 
 }

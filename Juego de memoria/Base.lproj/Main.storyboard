@@ -66,16 +66,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-2q-Pun">
-                                <rect key="frame" x="69" y="277" width="256" height="226"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPY-ma-ua0">
+                                <rect key="frame" x="107" y="371" width="200" height="100"/>
+                                <color key="backgroundColor" red="0.1328371465" green="0.059454999860000003" blue="0.079324968159999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="7yu-B8-U0b"/>
+                                    <constraint firstAttribute="height" constant="100" id="yRT-5Z-pVM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="32"/>
+                                <state key="normal" title="Empezar">
+                                    <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="EmpezarJuego:" destination="Xwd-kL-Ap7" eventType="touchUpInside" id="URV-cW-Gsa"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-2q-Pun">
+                                <rect key="frame" x="79" y="301" width="256" height="226"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QXf-iA-7lW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CPY-ma-ua0" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="csI-9D-mPq"/>
+                            <constraint firstItem="CPY-ma-ua0" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" id="iJs-Ob-jPU"/>
+                            <constraint firstItem="Ios-2q-Pun" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="mkB-ls-L51"/>
+                            <constraint firstItem="Ios-2q-Pun" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" id="wkm-Ga-6GZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Rbo-Uc-M8R"/>
                     <connections>
+                        <outlet property="EmpezarButton" destination="CPY-ma-ua0" id="8lU-TV-aoy"/>
                         <outlet property="RandomImageShown" destination="Ios-2q-Pun" id="0z6-tY-qUe"/>
                     </connections>
                 </viewController>
@@ -89,6 +110,9 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
