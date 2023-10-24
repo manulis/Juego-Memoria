@@ -81,14 +81,26 @@
                                     <action selector="EmpezarJuego:" destination="Xwd-kL-Ap7" eventType="touchUpInside" id="URV-cW-Gsa"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-2q-Pun">
-                                <rect key="frame" x="79" y="301" width="256" height="226"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-2q-Pun">
+                                <rect key="frame" x="79" y="293" width="256" height="256"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="Bcp-cy-ChO"/>
+                                    <constraint firstAttribute="height" constant="256" id="SLO-yo-evC"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parece que ha habido un error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfk-29-PAr">
+                                <rect key="frame" x="70.5" y="508.5" width="273.5" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QXf-iA-7lW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Bfk-29-PAr" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" constant="100" id="Lyb-vO-l9o"/>
                             <constraint firstItem="CPY-ma-ua0" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="csI-9D-mPq"/>
+                            <constraint firstItem="Bfk-29-PAr" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="fiK-92-kvs"/>
                             <constraint firstItem="CPY-ma-ua0" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" id="iJs-Ob-jPU"/>
                             <constraint firstItem="Ios-2q-Pun" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="mkB-ls-L51"/>
                             <constraint firstItem="Ios-2q-Pun" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" id="wkm-Ga-6GZ"/>
@@ -97,6 +109,7 @@
                     <navigationItem key="navigationItem" id="Rbo-Uc-M8R"/>
                     <connections>
                         <outlet property="EmpezarButton" destination="CPY-ma-ua0" id="8lU-TV-aoy"/>
+                        <outlet property="Error" destination="Bfk-29-PAr" id="0fC-JJ-5nS"/>
                         <outlet property="RandomImageShown" destination="Ios-2q-Pun" id="0z6-tY-qUe"/>
                     </connections>
                 </viewController>
@@ -111,6 +124,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
