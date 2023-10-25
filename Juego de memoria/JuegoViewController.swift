@@ -8,19 +8,18 @@
 import Foundation
 import UIKit
 
+
 class JuegoViewController:  UIViewController {
-
-    let endpoint = URL(string: "https://dog.ceo/api/breeds/image/random")
-    
     var imagesCorrectas:[String] = []
-
     var images:[String] = []
+    let endpoint = URL(string: "https://dog.ceo/api/breeds/image/random")
     
     struct  image:Codable {
         let message:String
     }
 
     @IBOutlet weak var EmpezarButton: UIButton!
+    @IBOutlet weak var ResolverButton: UIButton!
     @IBOutlet weak var RandomImageShown: UIImageView!
     @IBOutlet weak var Error: UILabel!
     
@@ -30,20 +29,21 @@ class JuegoViewController:  UIViewController {
         super.viewDidLoad()
         Error.isHidden=true
         CallApi()
-        EmpezarButton.layer.cornerRadius = 30.0
+        Utils.VisualConf(EmpezarButton)
+        Utils.VisualConf(ResolverButton)
         RandomImageShown.isHidden = true
+        ResolverButton.isHidden = true
     }
     
     @IBAction func EmpezarJuego(_ sender: Any) {
         EmpezarButton.isHidden = true
         RandomImageShown.isHidden = false
-        
         showImages(count)
-        
     }
     
     func showImages(_ i: Int){
         if i == 6{
+            ResolverButton.isHidden = false
             return
         }
         imagesCorrectas.append(images[i])
@@ -51,12 +51,11 @@ class JuegoViewController:  UIViewController {
         let data = try? Data(contentsOf: url!)
         RandomImageShown.image = UIImage(data: data!)
         print(i)
-        let deadlineTime = DispatchTime.now() + .seconds(2)
+        let deadlineTime = DispatchTime.now() + .seconds(1)
            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             self.count+=1
             self.showImages(self.count)
            }
-        
     }
     
     func CallApi(){

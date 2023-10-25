@@ -94,11 +94,25 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaR-Y6-vew">
+                                <rect key="frame" x="107" y="570" width="200" height="100"/>
+                                <color key="backgroundColor" red="0.20354840160000001" green="0.16112023589999999" blue="0.1730920672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0l3-AO-5cJ"/>
+                                    <constraint firstAttribute="height" constant="100" id="gvz-2f-VTj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="27"/>
+                                <state key="normal" title="Resolver">
+                                    <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QXf-iA-7lW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="RaR-Y6-vew" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" constant="199" id="Bx0-bR-Vg1"/>
                             <constraint firstItem="Bfk-29-PAr" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" constant="100" id="Lyb-vO-l9o"/>
+                            <constraint firstItem="RaR-Y6-vew" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="R3n-ZY-3ml"/>
                             <constraint firstItem="CPY-ma-ua0" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="csI-9D-mPq"/>
                             <constraint firstItem="Bfk-29-PAr" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="fiK-92-kvs"/>
                             <constraint firstItem="CPY-ma-ua0" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" id="iJs-Ob-jPU"/>
@@ -111,6 +125,7 @@
                         <outlet property="EmpezarButton" destination="CPY-ma-ua0" id="8lU-TV-aoy"/>
                         <outlet property="Error" destination="Bfk-29-PAr" id="0fC-JJ-5nS"/>
                         <outlet property="RandomImageShown" destination="Ios-2q-Pun" id="0z6-tY-qUe"/>
+                        <outlet property="ResolverButton" destination="RaR-Y6-vew" id="7s8-fv-sRD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0O2-fE-3ut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -127,6 +142,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiarySystemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
