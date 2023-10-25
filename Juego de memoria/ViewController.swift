@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ViewController: UIViewController {
+class ViewController: UIViewController {
 
     
     @IBOutlet weak var JugarButton: UIButton!
