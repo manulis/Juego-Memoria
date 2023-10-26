@@ -18,12 +18,12 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZs-4e-rVT">
                                 <rect key="frame" x="107" y="398" width="200" height="100"/>
-                                <color key="backgroundColor" red="0.0074207242801284639" green="0.0077720207253886286" blue="0.0068811518523509054" alpha="0.8098591549295775" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.10547626760000001" green="0.047551669179999999" blue="0.063461788000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="4Gs-Cy-t2T"/>
                                     <constraint firstAttribute="height" constant="100" id="weg-p6-eck"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="42"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="42"/>
                                 <state key="normal" title="Jugar">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -38,20 +38,35 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGS-SX-yDs">
+                                <rect key="frame" x="107" y="548" width="200" height="100"/>
+                                <color key="backgroundColor" red="0.10547626760000001" green="0.047551669179999999" blue="0.063461788000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="XZz-zK-o3Y"/>
+                                    <constraint firstAttribute="width" constant="200" id="c8J-LW-8Cu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="42"/>
+                                <state key="normal" title="Puntuación">
+                                    <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.67616580310880825" green="0.28581257171787877" blue="0.38506065306772558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.56217616580310881" green="0.51716965617783572" blue="0.53099786787184" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MZs-4e-rVT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5eu-bQ-FTT"/>
+                            <constraint firstItem="LGS-SX-yDs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="150" id="8aL-9b-aF5"/>
                             <constraint firstItem="ogx-6L-P2U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hhw-Fo-h4Y"/>
                             <constraint firstItem="MZs-4e-rVT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IcM-G6-pce"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ogx-6L-P2U" secondAttribute="trailing" id="TXQ-WC-sAg"/>
+                            <constraint firstItem="LGS-SX-yDs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WCH-tm-Xv8"/>
                             <constraint firstItem="ogx-6L-P2U" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="yb2-hm-Yw3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="JugarButton" destination="MZs-4e-rVT" id="Lnu-3L-sQF"/>
+                        <outlet property="PuntuacionButton" destination="LGS-SX-yDs" id="QJ2-ok-XHN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -81,8 +96,8 @@
                                     <action selector="EmpezarJuego:" destination="Xwd-kL-Ap7" eventType="touchUpInside" id="URV-cW-Gsa"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-2q-Pun">
-                                <rect key="frame" x="79" y="293" width="256" height="256"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-2q-Pun">
+                                <rect key="frame" x="79" y="251" width="256" height="256"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="Bcp-cy-ChO"/>
                                     <constraint firstAttribute="height" constant="256" id="SLO-yo-evC"/>
@@ -95,7 +110,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaR-Y6-vew">
-                                <rect key="frame" x="107" y="570" width="200" height="100"/>
+                                <rect key="frame" x="107" y="521" width="200" height="100"/>
                                 <color key="backgroundColor" red="0.20354840160000001" green="0.16112023589999999" blue="0.1730920672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="0l3-AO-5cJ"/>
@@ -105,19 +120,22 @@
                                 <state key="normal" title="Resolver">
                                     <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="ResolverJuego:" destination="Xwd-kL-Ap7" eventType="touchUpInside" id="gYV-j7-0hg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QXf-iA-7lW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="RaR-Y6-vew" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" constant="199" id="Bx0-bR-Vg1"/>
+                            <constraint firstItem="RaR-Y6-vew" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" constant="150" id="Bx0-bR-Vg1"/>
                             <constraint firstItem="Bfk-29-PAr" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" constant="100" id="Lyb-vO-l9o"/>
                             <constraint firstItem="RaR-Y6-vew" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="R3n-ZY-3ml"/>
                             <constraint firstItem="CPY-ma-ua0" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="csI-9D-mPq"/>
                             <constraint firstItem="Bfk-29-PAr" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="fiK-92-kvs"/>
                             <constraint firstItem="CPY-ma-ua0" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" id="iJs-Ob-jPU"/>
                             <constraint firstItem="Ios-2q-Pun" firstAttribute="centerX" secondItem="PBh-ZY-Eud" secondAttribute="centerX" id="mkB-ls-L51"/>
-                            <constraint firstItem="Ios-2q-Pun" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" id="wkm-Ga-6GZ"/>
+                            <constraint firstItem="Ios-2q-Pun" firstAttribute="centerY" secondItem="PBh-ZY-Eud" secondAttribute="centerY" constant="-42" id="wkm-Ga-6GZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Rbo-Uc-M8R"/>
@@ -131,6 +149,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0O2-fE-3ut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086.9565217391305" y="-52.232142857142854"/>
+        </scene>
+        <!--ResolverJuego-->
+        <scene sceneID="n8L-oM-w9z">
+            <objects>
+                <viewController title="ResolverJuego" id="fer-wR-8Pe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DMl-6Y-vZd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UhT-Xb-yJg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DMz-qi-Zkc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2103" y="-52"/>
         </scene>
     </scenes>
     <resources>

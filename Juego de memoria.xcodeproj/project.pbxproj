@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7942C9242AEA559C00928603 /* ResolverJuegoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7942C9232AEA559C00928603 /* ResolverJuegoViewController.swift */; };
 		797525E32ADFD63300234319 /* JuegoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797525E22ADFD63300234319 /* JuegoViewController.swift */; };
 		797525E92ADFDCD500234319 /* bBaiknya.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 797525E82ADFDCD500234319 /* bBaiknya.ttf */; };
 		79EFCD0C2AE917E8004C470D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EFCD0B2AE917E8004C470D /* Utils.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7942C9232AEA559C00928603 /* ResolverJuegoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolverJuegoViewController.swift; sourceTree = "<group>"; };
 		797525E22ADFD63300234319 /* JuegoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuegoViewController.swift; sourceTree = "<group>"; };
 		797525E82ADFDCD500234319 /* bBaiknya.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bBaiknya.ttf; path = ../../../../../../Downloads/bBaiknya.ttf; sourceTree = "<group>"; };
 		79EFCD0B2AE917E8004C470D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				79F4617D2AD681830092923B /* Info.plist */,
 				797525E22ADFD63300234319 /* JuegoViewController.swift */,
 				79EFCD0B2AE917E8004C470D /* Utils.swift */,
+				7942C9232AEA559C00928603 /* ResolverJuegoViewController.swift */,
 			);
 			path = "Juego de memoria";
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79EFCD0C2AE917E8004C470D /* Utils.swift in Sources */,
+				7942C9242AEA559C00928603 /* ResolverJuegoViewController.swift in Sources */,
 				79F461742AD681820092923B /* ViewController.swift in Sources */,
 				797525E32ADFD63300234319 /* JuegoViewController.swift in Sources */,
 				79F461702AD681820092923B /* AppDelegate.swift in Sources */,

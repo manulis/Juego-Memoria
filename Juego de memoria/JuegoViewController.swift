@@ -1,20 +1,12 @@
-//
-//  JuegoViewController.swift
-//  Juego de memoria
-//
-//  Created by user198742 on 18/10/2023.
-//
-
 import Foundation
 import UIKit
-
 
 class JuegoViewController:  UIViewController {
     var imagesCorrectas:[String] = []
     var images:[String] = []
     let endpoint = URL(string: "https://dog.ceo/api/breeds/image/random")
     
-    struct  image:Codable {
+    struct image:Codable {
         let message:String
     }
 
@@ -39,6 +31,12 @@ class JuegoViewController:  UIViewController {
         EmpezarButton.isHidden = true
         RandomImageShown.isHidden = false
         showImages(count)
+    }
+    
+    @IBAction func ResolverJuego(_ sender: Any) {
+        
+        
+        
     }
     
     func showImages(_ i: Int){
@@ -86,5 +84,4 @@ class JuegoViewController:  UIViewController {
             }.resume()
         }
     }
-        
 }
