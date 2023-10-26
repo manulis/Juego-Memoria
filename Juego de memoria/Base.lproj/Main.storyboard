@@ -121,7 +121,7 @@
                                     <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="ResolverJuego:" destination="Xwd-kL-Ap7" eventType="touchUpInside" id="gYV-j7-0hg"/>
+                                    <segue destination="fer-wR-8Pe" kind="show" identifier="enviar" id="ZTa-Uo-rne"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -153,13 +153,14 @@
         <!--ResolverJuego-->
         <scene sceneID="n8L-oM-w9z">
             <objects>
-                <viewController title="ResolverJuego" id="fer-wR-8Pe" sceneMemberID="viewController">
+                <viewController title="ResolverJuego" id="fer-wR-8Pe" customClass="ResolverJuegoViewController" customModule="Juego_de_memoria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DMl-6Y-vZd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="UhT-Xb-yJg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6Sv-Yv-ssF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DMz-qi-Zkc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
