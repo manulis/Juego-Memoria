@@ -166,30 +166,37 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QbM-3I-Pke">
-                                <rect key="frame" x="20" y="174" width="374" height="296"/>
+                                <rect key="frame" x="0.0" y="174" width="414" height="484"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b2j-vA-CmI">
-                                    <size key="itemSize" width="169" height="130"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b2j-vA-CmI">
+                                    <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="jUu-Z4-fnO" customClass="imageCollectionViewCell" customModule="Juego_de_memoria" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="169" height="130"/>
+                                        <rect key="frame" x="99.5" y="0.0" width="215" height="234"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7iJ-K2-rfr">
-                                            <rect key="frame" x="0.0" y="0.0" width="169" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="215" height="234"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2M-Ib-ahX">
-                                                    <rect key="frame" x="8" y="15" width="150" height="100"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e2M-Ib-ahX">
+                                                    <rect key="frame" x="8" y="17" width="200" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="Eu8-6w-sR1"/>
+                                                        <constraint firstAttribute="height" constant="200" id="tkF-6M-iGS"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="e2M-Ib-ahX" firstAttribute="centerY" secondItem="7iJ-K2-rfr" secondAttribute="centerY" id="4qh-he-hbH"/>
+                                                <constraint firstItem="e2M-Ib-ahX" firstAttribute="leading" secondItem="7iJ-K2-rfr" secondAttribute="leadingMargin" id="YvL-vN-lQf"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="169" height="130"/>
+                                        <size key="customSize" width="215" height="234"/>
                                         <connections>
                                             <outlet property="imageView" destination="e2M-Ib-ahX" id="Dgo-qY-2Hb"/>
                                         </connections>
