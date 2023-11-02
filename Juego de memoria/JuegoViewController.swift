@@ -38,8 +38,12 @@ class JuegoViewController:  UIViewController {
             return
         }
         imagesCorrectas.append(images[i])
-        let url:URL? = URL(string: images[i])
+        let url:URL? = URL(string: imagesCorrectas[i])
         let data = try? Data(contentsOf: url!)
+        if data == nil{
+            Error.isHidden=false
+            return
+        }
         RandomImageShown.image = UIImage(data: data!)
         print(i)
         let deadlineTime = DispatchTime.now() + .seconds(1)
@@ -72,6 +76,7 @@ class JuegoViewController:  UIViewController {
                             self.Error.isHidden = false
                             return
                           }
+                        
                       }
             
             }.resume()
