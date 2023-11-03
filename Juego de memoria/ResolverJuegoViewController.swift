@@ -11,9 +11,7 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! imageCollectionViewCell
         let url:URL? = URL(string: images[indexPath.row])
         let data = try? Data(contentsOf: url!)
-        
         cell.imageView.image = UIImage(data: data!)
-        
         return cell
     }
     
@@ -33,15 +31,20 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
 
         let imgWidth = view.bounds.width
         let imgHeight = imgWidth
-
         return CGSize(width: imgWidth, height: imgHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(images[indexPath.row])
         print(indexPath.row)
+        for imageCorrecta in imagesCorrectas {
+            if images[indexPath.row] == imageCorrecta{
+                puntuacion+=1
+                PuntuacionText.text = "Puntuacion: " + String(puntuacion)
+                print("correcta")
+            }
+        }
     }
-    
     
     var puntuacion = 0
     var imageSelect:[String] = []
@@ -55,11 +58,6 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
-        
-        for image in imagesCorrectas{
-            print(image)
-        }
-        
         
             
     }

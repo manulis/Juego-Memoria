@@ -37,7 +37,7 @@ class JuegoViewController:  UIViewController {
             ResolverButton.isHidden = false
             return
         }
-        imagesCorrectas.append(images[i])
+        imagesCorrectas.append(images[Int.random(in: 0..<10)])
         let url:URL? = URL(string: imagesCorrectas[i])
         let data = try? Data(contentsOf: url!)
         if data == nil{
@@ -54,7 +54,7 @@ class JuegoViewController:  UIViewController {
     }
     
     func CallApi(){
-        for i in 0...9{
+        for i in 0...10{
             guard let UrlEndpoint = endpoint else {
                 return
             }
