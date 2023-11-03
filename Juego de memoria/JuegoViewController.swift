@@ -54,7 +54,7 @@ class JuegoViewController:  UIViewController {
     }
     
     func CallApi(){
-        for i in 0...10{
+        for i in 0...9{
             guard let UrlEndpoint = endpoint else {
                 return
             }

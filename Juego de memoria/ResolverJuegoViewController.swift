@@ -16,6 +16,7 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
     }
@@ -36,7 +37,14 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         return CGSize(width: imgWidth, height: imgHeight)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(images[indexPath.row])
+        print(indexPath.row)
+    }
+    
+    
     var puntuacion = 0
+    var imageSelect:[String] = []
     @IBOutlet weak var PuntuacionText: UILabel!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
