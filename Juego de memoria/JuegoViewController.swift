@@ -5,7 +5,6 @@ var imagesCorrectas:[String] = []
 var images:[String] = []
 
 class JuegoViewController:  UIViewController {
-
     let endpoint = URL(string: "https://dog.ceo/api/breeds/image/random")
     struct image:Codable {
         let message:String
@@ -33,15 +32,22 @@ class JuegoViewController:  UIViewController {
     }
     
     func showImages(_ i: Int){
+        print(images.count)
+        
         if i == 6{
             ResolverButton.isHidden = false
             return
         }
-        imagesCorrectas.append(images[Int.random(in: 0..<10)])
+        if images.count != 11{
+            Error.isHidden = false
+            return
+        }
+        imagesCorrectas.append(images[i])
         let url:URL? = URL(string: imagesCorrectas[i])
         let data = try? Data(contentsOf: url!)
         if data == nil{
-            Error.isHidden=false
+            print("Data es NULL")
+            Error.isHidden = false
             return
         }
         RandomImageShown.image = UIImage(data: data!)

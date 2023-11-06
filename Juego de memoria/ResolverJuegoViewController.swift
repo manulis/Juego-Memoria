@@ -1,8 +1,9 @@
 import Foundation
 import UIKit
 
+var puntuacion:Int = 0
+var imgSelec:[String]=[]
 class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
@@ -11,6 +12,11 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! imageCollectionViewCell
         let url:URL? = URL(string: images[indexPath.row])
         let data = try? Data(contentsOf: url!)
+        if data == nil{
+            print("Error")
+            imageCollectionView.isHidden = true
+            TextoFin.text = "Parece que hubo un error"
+        }
         cell.imageView.image = UIImage(data: data!)
         return cell
     }
@@ -28,7 +34,6 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         let imgWidth = view.bounds.width
         let imgHeight = imgWidth
         return CGSize(width: imgWidth, height: imgHeight)
@@ -37,30 +42,18 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(images[indexPath.row])
         print(indexPath.row)
-        for imageCorrecta in imagesCorrectas {
-            if images[indexPath.row] == imageCorrecta{
-                puntuacion+=1
-                PuntuacionText.text = "Puntuacion: " + String(puntuacion)
-                print("correcta")
-            }
-        }
     }
     
-    var puntuacion = 0
-    var imageSelect:[String] = []
+    var fallos:Int = 0
     @IBOutlet weak var PuntuacionText: UILabel!
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    @IBOutlet weak var TextoFin: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         PuntuacionText.text = "Puntuacion: " + String(puntuacion)
-        
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
         
-            
     }
-    
 }
-
