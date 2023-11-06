@@ -42,6 +42,33 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(images[indexPath.row])
         print(indexPath.row)
+        
+        if comprobarCorrecta(images[indexPath.row]) == true{
+            puntuacion+=1
+            print("correcta")
+        }
+        else{
+            puntuacion-=1
+            fallos+=1
+            print("incorrecta")
+        }
+        
+        if fallos == 3 {
+            collectionView.isHidden=true
+            TextoFin.text = "Tuviste tres fallos, fin del juego"
+        }
+        
+        PuntuacionText.text = "Puntuación: " + String(puntuacion)
+        
+    }
+    
+    func comprobarCorrecta(_ image:String) -> Bool{
+        for imageCorrecta in imagesCorrectas{
+            if imageCorrecta == image{
+                return true
+            }
+        }
+        return false
     }
     
     var fallos:Int = 0
@@ -51,7 +78,7 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PuntuacionText.text = "Puntuacion: " + String(puntuacion)
+        PuntuacionText.text = "Puntuación: " + String(puntuacion)
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
         
