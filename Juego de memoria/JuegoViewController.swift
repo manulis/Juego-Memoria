@@ -31,36 +31,48 @@ class JuegoViewController:  UIViewController {
         showImages(count)
     }
     
-    func showImages(_ i: Int){
-        print(images.count)
-        if i == 6{
+    func cargarImagenDesdeURL(_ urlString: String) {
+        guard let url = URL(string: urlString) else {
+            print("URL inválida: \(urlString)")
+            return
+        }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                print("Error al cargar imagen: \(error)")
+                return
+            }
+            if let data = data, let imagen = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.RandomImageShown.image = imagen
+                }
+            } else {
+                print("No se pudo cargar la imagen desde los datos")
+            }
+        }.resume()
+    }
+    
+    func showImages(_ i: Int) {
+        if i == 6 {
             ResolverButton.isHidden = false
             images.shuffle()
             return
         }
-        imagesCorrectas.append(images[i])
-        let url:URL? = URL(string: imagesCorrectas[i])
-        let data = try? Data(contentsOf: url!)
-        if data == nil{
-            print("Data is NULL")
-            RandomImageShown.image = UIImage(named: "error.png")
-        }else{
-            RandomImageShown.image = UIImage(data: data!)
-        }
         
-        print(i)
+        imagesCorrectas.append(images[i])
+        let urlString = imagesCorrectas[i]
+        cargarImagenDesdeURL(urlString)
+        
         let deadlineTime = DispatchTime.now() + .seconds(1)
-           DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-            self.count+=1
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.count += 1
             self.showImages(self.count)
-           }
+        }
     }
+
     
     func CallApi(){
-        for i in 0...10{
-            guard let UrlEndpoint = endpoint else {
-                return
-            }
+        for _ in 0...10{
+            guard let UrlEndpoint = endpoint else {return}
            URLSession.shared.dataTask(with: UrlEndpoint){
                 data, response, error in
                 if let data = data, let string = String(data: data, encoding: .utf8){
@@ -70,14 +82,11 @@ class JuegoViewController:  UIViewController {
                       if let data = data{
                           do{
                             let tasks = try decoder.decode(image.self, from: data)
-                            print(tasks.message)
                             images.append(tasks.message)
-                            print(i)
                           }catch{
                             print(error)
                             return
                           }
-                        
                       }
             
             }.resume()

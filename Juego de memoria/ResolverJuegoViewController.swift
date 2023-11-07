@@ -10,21 +10,15 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! imageCollectionViewCell
-        if pulsado == true{
+        if pulsado {
             images[ocult] = ""
             pulsado = false
         }
-        if images[indexPath.row] == ""{
-            cell.imageView.image = UIImage(named: "")
-            return cell
-        }
-        let url:URL? = URL(string: images[indexPath.row])
-        let data = try? Data(contentsOf: url!)
-        if data == nil{
-            print("Error")
+
+        if let url = URL(string: images[indexPath.row]), let data = try? Data(contentsOf: url) {
+            cell.imageView.image = UIImage(data: data)
+        } else {
             cell.imageView.image = UIImage(named: "error.png")
-        }else{
-            cell.imageView.image = UIImage(data: data!)
         }
         return cell
     }
@@ -52,37 +46,27 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         print(indexPath.row)
         
         ocult = indexPath.row
+
+        puntuacion += comprobarCorrecta(images[indexPath.row]) ? 5 : -3
+        aciertos += comprobarCorrecta(images[indexPath.row]) ? 1 : 0
+        fallos += comprobarCorrecta(images[indexPath.row]) ? 0 : 1
+        print(comprobarCorrecta(images[indexPath.row]) ? "correcta" : "incorrecta")
+        pulsado = true
+        imageCollectionView.reloadData()
         
-        if comprobarCorrecta(images[indexPath.row]) == true{
-            puntuacion+=5
-            aciertos+=1
-            print("correcta")
-            pulsado = true
-            imageCollectionView.reloadData()
+        if fallos == 3 || aciertos == 5 {
+            collectionView.isHidden = true
+            AceptarButton.isHidden = false
+            TextoFin.text = fallos == 3 ? "Tuviste tres fallos, perdiste" : "¡Ganaste!"
+            TextoFin.textColor = fallos == 3 ? UIColor.red : UIColor.blue
         }
-        else{
-            puntuacion-=3
-            fallos+=1
-            print("incorrecta")
-            pulsado = true
-            imageCollectionView.reloadData()
-        }
-        if fallos == 3 {
-            collectionView.isHidden=true
-            AceptarButton.isHidden=false
-            TextoFin.text = "Tuviste tres fallos, perdiste"
-        }
-        if aciertos == 5{
-            collectionView.isHidden=true
-            AceptarButton.isHidden=false
-            TextoFin.text = "Ganaste!!!!"
-            TextoFin.textColor = UIColor.blue
-        }
+           
         PuntuacionText.text = "Puntuación: " + String(puntuacion)
     }
     
-    func addPuntu(_ puntuacion: Int){
-        let endpointRestApiPuntu = "https://api.restful-api.dev/objects"
+    func enviarPuntu(_ puntuacion: Int){
+        let url = URL(string: "https://api.restful-api.dev/objects")
+        
         
         
     }
