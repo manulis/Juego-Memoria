@@ -20,7 +20,6 @@ Esta aplicación desarrollada en Swift tiene como objetivo ayudar a los usuarios
 
 ### Prueba de memoria:
 Tienes que seleccionar las imagenes que te han salido en la secuencia
-![Captura de Pantalla 1](PantallaInicio.png)
 
 ![Captura de Pantalla 1](PantallaPruebaMemoria.png)
 
