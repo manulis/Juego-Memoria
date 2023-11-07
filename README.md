@@ -16,7 +16,7 @@ Esta aplicación desarrollada en Swift tiene como objetivo ayudar a los usuarios
 ## Capturas de Pantalla
 
 ### Pantalla de inicio:
-
+![Captura de Pantalla 1](PantallaInicio.png)
 
 ## Instalación
 1. Clona o descarga el repositorio desde [GitHub](https://github.com/manulis/Juego-Memoria).
