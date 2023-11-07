@@ -163,8 +163,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKd-bq-IxQ">
-                                <rect key="frame" x="175" y="404.5" width="64" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <rect key="frame" x="182.5" y="401" width="49" height="40"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.01208707165" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -212,18 +212,36 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDd-v0-7OP">
+                                <rect key="frame" x="107" y="571" width="200" height="100"/>
+                                <color key="backgroundColor" red="0.20354840160000001" green="0.16112023589999999" blue="0.1730920672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0tr-Up-SvK"/>
+                                    <constraint firstAttribute="height" constant="100" id="VSv-G0-JFW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="27"/>
+                                <state key="normal" title="Aceptar">
+                                    <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="1sv-GQ-5Px" kind="show" id="0wc-dT-2CY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UhT-Xb-yJg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oDd-v0-7OP" firstAttribute="centerX" secondItem="DMl-6Y-vZd" secondAttribute="centerX" id="3hk-iJ-5pC"/>
                             <constraint firstItem="aY3-pl-zqZ" firstAttribute="centerX" secondItem="DMl-6Y-vZd" secondAttribute="centerX" id="D4c-hT-Iok"/>
                             <constraint firstItem="aY3-pl-zqZ" firstAttribute="centerY" secondItem="DMl-6Y-vZd" secondAttribute="centerY" constant="-375" id="FPa-aU-S5y"/>
                             <constraint firstItem="JKd-bq-IxQ" firstAttribute="centerX" secondItem="DMl-6Y-vZd" secondAttribute="centerX" id="XdG-ot-qDA"/>
                             <constraint firstItem="JKd-bq-IxQ" firstAttribute="centerY" secondItem="DMl-6Y-vZd" secondAttribute="centerY" id="Zwg-j5-4xC"/>
+                            <constraint firstItem="oDd-v0-7OP" firstAttribute="centerY" secondItem="DMl-6Y-vZd" secondAttribute="centerY" constant="200" id="mT0-3o-uO9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6Sv-Yv-ssF"/>
                     <connections>
+                        <outlet property="AceptarButton" destination="oDd-v0-7OP" id="AgX-An-ELB"/>
                         <outlet property="PuntuacionText" destination="aY3-pl-zqZ" id="0Am-eE-sKX"/>
                         <outlet property="TextoFin" destination="JKd-bq-IxQ" id="UOk-e0-OiX"/>
                         <outlet property="imageCollectionView" destination="QbM-3I-Pke" id="eaa-Jv-k9N"/>
@@ -233,23 +251,75 @@
             </objects>
             <point key="canvasLocation" x="2102.898550724638" y="-52.232142857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Puntuacion-->
         <scene sceneID="Dlv-mv-iS2">
             <objects>
-                <viewController id="1sv-GQ-5Px" sceneMemberID="viewController">
+                <viewController title="Puntuacion" id="1sv-GQ-5Px" customClass="PuntuViewController" customModule="Juego_de_memoria" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ae-3E-RVG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ws2-gt-Ndk">
+                                <rect key="frame" x="87" y="116" width="240" height="648"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PuntuCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" id="lat-cT-6vd" customClass="puntuTableViewCell" customModule="Juego_de_memoria" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lat-cT-6vd" id="yRB-XL-EM5">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nM1-Ia-gxw">
+                                                    <rect key="frame" x="33" y="0.0" width="59" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nM1-Ia-gxw" firstAttribute="top" secondItem="yRB-XL-EM5" secondAttribute="topMargin" constant="-11" id="6NV-Ma-RFa"/>
+                                                <constraint firstItem="nM1-Ia-gxw" firstAttribute="leading" secondItem="yRB-XL-EM5" secondAttribute="leadingMargin" constant="75" id="cDH-3V-j3c"/>
+                                                <constraint firstItem="nM1-Ia-gxw" firstAttribute="centerX" secondItem="yRB-XL-EM5" secondAttribute="centerX" id="jtZ-I2-0l8"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="puntuText" destination="nM1-Ia-gxw" id="O5m-pV-aXl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puntuación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-EH-jiB">
+                                <rect key="frame" x="143.5" y="20" width="127" height="48"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="03x-HZ-lXo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ws2-gt-Ndk" firstAttribute="centerY" secondItem="5ae-3E-RVG" secondAttribute="centerY" constant="19" id="DwI-9Z-1DB"/>
+                            <constraint firstItem="LlD-EH-jiB" firstAttribute="centerY" secondItem="5ae-3E-RVG" secondAttribute="centerY" constant="-377" id="VcI-Ku-8D9"/>
+                            <constraint firstItem="Ws2-gt-Ndk" firstAttribute="leading" secondItem="03x-HZ-lXo" secondAttribute="leading" constant="87" id="abU-v2-rw5"/>
+                            <constraint firstItem="Ws2-gt-Ndk" firstAttribute="top" secondItem="03x-HZ-lXo" secondAttribute="top" constant="116" id="nif-V1-Jiq"/>
+                            <constraint firstItem="Ws2-gt-Ndk" firstAttribute="centerX" secondItem="5ae-3E-RVG" secondAttribute="centerX" id="oIa-0d-SsD"/>
+                            <constraint firstItem="LlD-EH-jiB" firstAttribute="centerX" secondItem="5ae-3E-RVG" secondAttribute="centerX" id="r2W-uI-rQT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8rA-xe-wPS"/>
+                    <connections>
+                        <outlet property="puntuTable" destination="Ws2-gt-Ndk" id="dNP-pT-msL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JD-sU-NMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="145" y="648"/>
+            <point key="canvasLocation" x="991" y="804"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0wc-dT-2CY"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

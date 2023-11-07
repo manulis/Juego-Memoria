@@ -14,6 +14,7 @@ class JuegoViewController:  UIViewController {
     @IBOutlet weak var RandomImageShown: UIImageView!
     @IBOutlet weak var Error: UILabel!
     var count = 0
+    var fallo:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,6 @@ class JuegoViewController:  UIViewController {
     
     func showImages(_ i: Int){
         print(images.count)
-        
         if i == 6{
             ResolverButton.isHidden = false
             return
@@ -42,15 +42,23 @@ class JuegoViewController:  UIViewController {
             Error.isHidden = false
             return
         }
-        imagesCorrectas.append(images[i])
+        
+        imagesCorrectas.append(images[Int.random(in: 0..<10)])
+            
+        if fallo == true{
+            Error.isHidden = false
+            return
+        }
         let url:URL? = URL(string: imagesCorrectas[i])
         let data = try? Data(contentsOf: url!)
         if data == nil{
             print("Data es NULL")
             Error.isHidden = false
             return
+        }else{
+            RandomImageShown.image = UIImage(data: data!)
         }
-        RandomImageShown.image = UIImage(data: data!)
+        
         print(i)
         let deadlineTime = DispatchTime.now() + .seconds(1)
            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
@@ -78,8 +86,7 @@ class JuegoViewController:  UIViewController {
                             print(i)
                           }catch{
                             print(error)
-                            self.EmpezarButton.isEnabled = false
-                            self.Error.isHidden = false
+                            self.fallo=true
                             return
                           }
                         

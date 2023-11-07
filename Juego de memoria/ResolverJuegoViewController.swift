@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 var puntuacion:Int = 0
-var imgSelec:[String]=[]
+
 class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
@@ -10,14 +10,22 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! imageCollectionViewCell
+        if pulsado == true{
+            images[ocult] = ""
+            pulsado = false
+        }
+        if images[indexPath.row] == ""{
+            cell.imageView.image = UIImage(named: "")
+            return cell
+        }
         let url:URL? = URL(string: images[indexPath.row])
         let data = try? Data(contentsOf: url!)
         if data == nil{
             print("Error")
-            imageCollectionView.isHidden = true
-            TextoFin.text = "Parece que hubo un error"
+            cell.imageView.image = UIImage(named: "")
+        }else{
+            cell.imageView.image = UIImage(data: data!)
         }
-        cell.imageView.image = UIImage(data: data!)
         return cell
     }
     
@@ -43,23 +51,34 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         print(images[indexPath.row])
         print(indexPath.row)
         
+        ocult = indexPath.row
+        
         if comprobarCorrecta(images[indexPath.row]) == true{
-            puntuacion+=1
+            puntuacion+=5
+            aciertos+=1
             print("correcta")
+            pulsado = true
+            imageCollectionView.reloadData()
         }
         else{
-            puntuacion-=1
+            puntuacion-=3
             fallos+=1
             print("incorrecta")
+            pulsado = true
+            imageCollectionView.reloadData()
         }
-        
         if fallos == 3 {
             collectionView.isHidden=true
-            TextoFin.text = "Tuviste tres fallos, fin del juego"
+            AceptarButton.isHidden=false
+            TextoFin.text = "Tuviste tres fallos, perdiste"
         }
-        
+        if aciertos == 5{
+            collectionView.isHidden=true
+            AceptarButton.isHidden=false
+            TextoFin.text = "Ganaste!!!!"
+            TextoFin.textColor = UIColor.blue
+        }
         PuntuacionText.text = "Puntuación: " + String(puntuacion)
-        
     }
     
     func comprobarCorrecta(_ image:String) -> Bool{
@@ -71,13 +90,19 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         return false
     }
     
+    var pulsado:Bool = false
+    var ocult = 1
+    var aciertos:Int = 0
     var fallos:Int = 0
     @IBOutlet weak var PuntuacionText: UILabel!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var TextoFin: UILabel!
+    @IBOutlet weak var AceptarButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AceptarButton.isHidden=true
+        Utils.VisualConf(AceptarButton)
         PuntuacionText.text = "Puntuación: " + String(puntuacion)
         imageCollectionView.dataSource = self
         imageCollectionView.delegate = self
