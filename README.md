@@ -21,12 +21,13 @@ Esta aplicación desarrollada en Swift tiene como objetivo ayudar a los usuarios
 ![Captura de Pantalla 1](PantallaInicio.png)
 
 ### Secuencia de imagenes
+Le das a empezar y se inicia la secuencia
 
 
 ![Captura de Pantalla 1](SecuenciaImagenes.png)
 
 ### Prueba de memoria:
-
+Tienes que seleccionar las imagenes que salieron en la secuencia
 
 ![Captura de Pantalla 1](PantallaPruebaMemoria.png)
 
