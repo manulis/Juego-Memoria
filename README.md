@@ -17,14 +17,17 @@ Esta aplicación desarrollada en Swift tiene como objetivo ayudar a los usuarios
 ## Capturas de Pantalla
 
 ### Pantalla de inicio:
+
 ![Captura de Pantalla 1](PantallaInicio.png)
 
 ### Secuencia de imagenes
 Le das a empezar y comienza la secuencia de imagenes
+
 ![Captura de Pantalla 2](SecuenciaImagenes.png)
 
 ### Prueba de memoria:
 Tienes que seleccionar las imagenes que te han salido en la secuencia
+
 ![Captura de Pantalla 3](PantallaPruebaMemoria.png)
 
 ## Instalación
