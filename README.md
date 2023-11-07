@@ -19,7 +19,7 @@ Esta aplicación desarrollada en Swift tiene como objetivo ayudar a los usuarios
 
 
 ## Instalación
-1. Clona o descarga el repositorio desde [GitHub](https://github.com/tuusuario/tuapp).
+1. Clona o descarga el repositorio desde [GitHub]((https://github.com/manulis/Juego-Memoria)).
 2. Abre el proyecto en Xcode.
 3. Ejecuta la aplicación en tu dispositivo o simulador.
 
