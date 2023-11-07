@@ -13,6 +13,7 @@ Esta aplicación desarrollada en Swift tiene como objetivo ayudar a los usuarios
 - Swift: Lenguaje de programación principal.
 - UIKit: Para la creación de la interfaz de usuario.
 - API: https://dog.ceo/api/breeds/image/random
+- Restful Api para guardar puntuaciones: https://api.restful-api.dev/objects
 
 ## Capturas de Pantalla
 
