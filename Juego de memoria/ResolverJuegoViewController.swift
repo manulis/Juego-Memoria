@@ -22,7 +22,7 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         let data = try? Data(contentsOf: url!)
         if data == nil{
             print("Error")
-            cell.imageView.image = UIImage(named: "")
+            cell.imageView.image = UIImage(named: "error.png")
         }else{
             cell.imageView.image = UIImage(data: data!)
         }
@@ -79,6 +79,12 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
             TextoFin.textColor = UIColor.blue
         }
         PuntuacionText.text = "Puntuación: " + String(puntuacion)
+    }
+    
+    func addPuntu(_ puntuacion: Int){
+        let endpointRestApiPuntu = "https://api.restful-api.dev/objects"
+        
+        
     }
     
     func comprobarCorrecta(_ image:String) -> Bool{

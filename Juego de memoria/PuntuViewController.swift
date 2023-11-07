@@ -1,24 +1,17 @@
-//
-//  PuntuViewController.swift
-//  Juego de memoria
-//
-//  Created by user198742 on 07/11/2023.
-//
-
 import Foundation
 import UIKit
+
+
 
 class PuntuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell") as! puntuTableViewCell
         cell.puntuText.text = "Prueba"
         return cell
     }
-    
     
     @IBOutlet weak var puntuTable: UITableView!
     

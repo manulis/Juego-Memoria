@@ -69,22 +69,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		797525EB2ADFE2FD00234319 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				797525EC2ADFE30700234319 /* Images */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		797525EC2ADFE30700234319 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				794B66D72AFA3E93002037A6 /* error.png */,
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		79F461632AD681820092923B = {
 			isa = PBXGroup;
 			children = (
@@ -104,9 +88,9 @@
 		79F4616E2AD681820092923B /* Juego de memoria */ = {
 			isa = PBXGroup;
 			children = (
-				797525EB2ADFE2FD00234319 /* Assets */,
 				797525E52ADFDB2500234319 /* Resources */,
 				79F4616F2AD681820092923B /* AppDelegate.swift */,
+				794B66D72AFA3E93002037A6 /* error.png */,
 				79F461712AD681820092923B /* SceneDelegate.swift */,
 				79F461752AD681820092923B /* Main.storyboard */,
 				79F461732AD681820092923B /* ViewController.swift */,
