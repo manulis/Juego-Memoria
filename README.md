@@ -18,6 +18,12 @@ Esta aplicación desarrollada en Swift tiene como objetivo ayudar a los usuarios
 ### Pantalla de inicio:
 ![Captura de Pantalla 1](PantallaInicio.png)
 
+### Prueba de memoria:
+Tienes que seleccionar las imagenes que te han salido en la secuencia
+![Captura de Pantalla 1](PantallaInicio.png)
+
+![Captura de Pantalla 1](PantallaPruebaMemoria.png)
+
 ## Instalación
 1. Clona o descarga el repositorio desde [GitHub](https://github.com/manulis/Juego-Memoria).
 2. Abre el proyecto en Xcode.
