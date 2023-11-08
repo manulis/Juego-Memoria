@@ -13,7 +13,9 @@ class PuntuViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    func cargarPunto(){
+    func getPuntu(){
+       
+        
         
         
     }

@@ -85,16 +85,15 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
                 let puntuJson = try JSONDecoder().decode(Puntuacion.self, from: data!)
                 print(puntuJson)
                 let id = puntuJson.id
-                let encoder = JSONEncoder()
-                let data = try? encoder.encode(id)
-                UserDefaults.standard.set(data, forKey: "id")
-                print(id)
+                Utils.ids.append(id)
+                UserDefaults.standard.set(Utils.ids, forKey: "ids")
+                Utils.cargarIds()
             } catch {
                 print("Error")
             }
         }.resume()
     }
-    
+        
     struct Puntuacion: Codable{
         var id:String = ""
         var name:String

@@ -10,8 +10,12 @@ class Utils {
         Button.layer.cornerRadius = 30.0
     }
     
-    
-
-    
+    static func cargarIds(){
+        let array = UserDefaults.standard.object(forKey: "ids") as? [String] ?? [String]()
+        print(array)
+        for i in 0...array.count - 1{
+            ids.append(array[i])
+        }
+    }
     
 }
