@@ -57,11 +57,9 @@ class JuegoViewController:  UIViewController {
             images.shuffle()
             return
         }
-        
         imagesCorrectas.append(images[i])
         let urlString = imagesCorrectas[i]
         cargarImagenDesdeURL(urlString)
-        
         let deadlineTime = DispatchTime.now() + .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             self.count += 1
@@ -69,7 +67,6 @@ class JuegoViewController:  UIViewController {
         }
     }
 
-    
     func CallApi(){
         for _ in 0...10{
             guard let UrlEndpoint = endpoint else {return}
