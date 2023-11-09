@@ -18,4 +18,21 @@ class Utils {
         }
     }
     
+     struct Puntuacion: Codable{
+        var id:String = ""
+        var name:String
+        var data:PuntuacionData
+        init(_ name:String, _ data:PuntuacionData) {
+            self.name = name
+            self.data = data
+        }
+    }
+    
+  struct PuntuacionData:Codable {
+        var puntuacion:Int
+        init(_ puntuacion:Int){
+            self.puntuacion = puntuacion
+        }
+    }
+    
 }

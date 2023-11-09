@@ -264,21 +264,23 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PuntuCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" id="lat-cT-6vd" customClass="puntuTableViewCell" customModule="Juego_de_memoria" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="240" height="34.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lat-cT-6vd" id="yRB-XL-EM5">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="34.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nM1-Ia-gxw">
-                                                    <rect key="frame" x="33" y="0.0" width="59" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nM1-Ia-gxw">
+                                                    <rect key="frame" x="91" y="0.0" width="58" height="34.5"/>
                                                     <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="nM1-Ia-gxw" firstAttribute="centerX" secondItem="yRB-XL-EM5" secondAttribute="centerX" id="2NT-Cc-nAm"/>
                                                 <constraint firstItem="nM1-Ia-gxw" firstAttribute="top" secondItem="yRB-XL-EM5" secondAttribute="topMargin" constant="-11" id="6NV-Ma-RFa"/>
+                                                <constraint firstItem="nM1-Ia-gxw" firstAttribute="centerY" secondItem="yRB-XL-EM5" secondAttribute="centerY" id="UrM-Yk-7z6"/>
                                                 <constraint firstItem="nM1-Ia-gxw" firstAttribute="leading" secondItem="yRB-XL-EM5" secondAttribute="leadingMargin" constant="75" id="cDH-3V-j3c"/>
                                                 <constraint firstItem="nM1-Ia-gxw" firstAttribute="centerX" secondItem="yRB-XL-EM5" secondAttribute="centerX" id="jtZ-I2-0l8"/>
                                             </constraints>

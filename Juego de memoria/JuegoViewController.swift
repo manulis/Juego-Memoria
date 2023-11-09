@@ -79,7 +79,9 @@ class JuegoViewController:  UIViewController {
                       if let data = data{
                           do{
                             let tasks = try decoder.decode(image.self, from: data)
-                            images.append(tasks.message)
+                            DispatchQueue.main.async {
+                                images.append(tasks.message)
+                            }
                           }catch{
                             print(error)
                             return

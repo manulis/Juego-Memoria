@@ -53,9 +53,6 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
             TextoFin.text = fallos == 3 ? "Tuviste tres fallos, perdiste" : "¡Ganaste!"
             TextoFin.textColor = fallos == 3 ? UIColor.red : UIColor.blue
             guardarPuntu(puntuacion)
-            
-            
-            
         }
            
         PuntuacionText.text = "Puntuación: " + String(puntuacion)
@@ -71,7 +68,7 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
     }
     
     func guardarPuntu(_ puntuacion: Int){
-        let newPuntu = Puntuacion ("", PuntuacionData(puntuacion))
+        let newPuntu = Utils.Puntuacion ("", Utils.PuntuacionData(puntuacion))
         let data = try! JSONEncoder().encode(newPuntu)
         var request = URLRequest(url: Utils.restfulApiEndPoint!)
         request.httpMethod = "POST"
@@ -82,35 +79,19 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
             let json = String(data: data!, encoding: .utf8)
             print(json ?? "Error")
             do {
-                let puntuJson = try JSONDecoder().decode(Puntuacion.self, from: data!)
-                print(puntuJson)
-                let id = puntuJson.id
-                Utils.ids.append(id)
-                UserDefaults.standard.set(Utils.ids, forKey: "ids")
-                Utils.cargarIds()
+                let puntuJson = try JSONDecoder().decode(Utils.Puntuacion.self, from: data!)
+                DispatchQueue.main.async {
+                    print(puntuJson)
+                    let id = puntuJson.id
+                    Utils.ids.append(id)
+                    UserDefaults.standard.set(Utils.ids, forKey: "ids")
+                }
             } catch {
                 print("Error")
             }
         }.resume()
     }
         
-    struct Puntuacion: Codable{
-        var id:String = ""
-        var name:String
-        var data:PuntuacionData
-        init(_ name:String, _ data:PuntuacionData) {
-            self.name = name
-            self.data = data
-        }
-    }
-    
-    struct PuntuacionData:Codable {
-        var puntuacion:Int
-        init(_ puntuacion:Int){
-            self.puntuacion = puntuacion
-        }
-    }
-    
     var puntuacion = 0
     var pulsado:Bool = false
     var ocult = 1
