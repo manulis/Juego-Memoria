@@ -11,5 +11,4 @@ class ViewController: UIViewController {
         Utils.VisualConf(JugarButton)
         Utils.VisualConf(PuntuacionButton)
     }
-    
 }

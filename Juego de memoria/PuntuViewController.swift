@@ -1,7 +1,6 @@
 import Foundation
 import UIKit
 
-
 class PuntuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return puntuaciones.count
@@ -13,8 +12,8 @@ class PuntuViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func getPuntu(){
-        for i in 0...Utils.ids.count - 1 {
-            let url = "https://api.restful-api.dev/objects?id=" + Utils.ids[i]
+        for id in Utils.ids {
+            let url = "https://api.restful-api.dev/objects?id=" + id
                 guard let enpoint = URL(string: url) else{
                     print("URL Invalida")
                     return
@@ -29,11 +28,9 @@ class PuntuViewController: UIViewController, UITableViewDataSource, UITableViewD
                               do{
                                 let tasks = try decoder.decode([Utils.Puntuacion].self, from: data)
                                 DispatchQueue.main.async {
-                                    for task in tasks{
-                                        print(task.data.puntuacion)
-                                        self.puntuaciones.append(task.data.puntuacion)
-                                        self.puntuTable.reloadData()
-                                    }
+                                    let puntuaciones = tasks.map { $0.data.puntuacion }
+                                    self.puntuaciones.append(contentsOf: puntuaciones)
+                                    self.puntuTable.reloadData()
                                 }
                               }catch{
                                 print(error)

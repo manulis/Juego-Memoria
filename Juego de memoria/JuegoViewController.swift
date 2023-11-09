@@ -33,7 +33,7 @@ class JuegoViewController:  UIViewController {
     
     func cargarImagenDesdeURL(_ urlString: String) {
         guard let url = URL(string: urlString) else {
-            print("URL inválida: \(urlString)")
+            print("URL inválida")
             return
         }
         URLSession.shared.dataTask(with: url) { data, _, error in
