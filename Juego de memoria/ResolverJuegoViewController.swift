@@ -3,16 +3,16 @@ import UIKit
 
 class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return Utils.images.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! imageCollectionViewCell
         if pulsado {
-            images[ocult] = ""
+            Utils.images[ocult] = ""
             pulsado = false
         }
-        if let url = URL(string: images[indexPath.row]), let data = try? Data(contentsOf: url) {
+        if let url = URL(string: Utils.images[indexPath.row]), let data = try? Data(contentsOf: url) {
             cell.imageView.image = UIImage(data: data)
         } else{
             cell.imageView.image = UIImage(named: "")
@@ -38,12 +38,13 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         return CGSize(width: imgWidth, height: imgHeight)
     }
     
+    //Procesa la selección de un elemento del collection view
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         ocult = indexPath.row
-        puntuacion += comprobarCorrecta(images[indexPath.row]) ? 5 : -3
-        aciertos += comprobarCorrecta(images[indexPath.row]) ? 1 : 0
-        fallos += comprobarCorrecta(images[indexPath.row]) ? 0 : 1
-        print(comprobarCorrecta(images[indexPath.row]) ? "correcta" : "incorrecta")
+        puntuacion += comprobarCorrecta(Utils.images[indexPath.row]) ? 5 : -3
+        aciertos += comprobarCorrecta(Utils.images[indexPath.row]) ? 1 : 0
+        fallos += comprobarCorrecta(Utils.images[indexPath.row]) ? 0 : 1
+        print(comprobarCorrecta(Utils.images[indexPath.row]) ? "correcta" : "incorrecta")
         pulsado = true
         imageCollectionView.reloadData()
         
@@ -57,9 +58,10 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
            
         PuntuacionText.text = "Puntuación: " + String(puntuacion)
     }
-
+    
+    //Compruba si la imagen selecionada por el usuario es correcta
     func comprobarCorrecta(_ image:String) -> Bool{
-        for imageCorrecta in imagesCorrectas{
+        for imageCorrecta in Utils.imagesCorrectas{
             if imageCorrecta == image{
                 return true
             }
@@ -67,6 +69,7 @@ class ResolverJuegoViewController: UIViewController,  UICollectionViewDataSource
         return false
     }
     
+    //Guarda la puntuación obtenida por el usuario en la restful API https://api.restful-api.dev/objects
     func guardarPuntu(_ puntuacion: Int){
         let newPuntu = Utils.Puntuacion ("", Utils.PuntuacionData(puntuacion))
         let data = try! JSONEncoder().encode(newPuntu)

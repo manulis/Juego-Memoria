@@ -1,9 +1,6 @@
 import Foundation
 import UIKit
 
-var imagesCorrectas:[String] = []
-var images:[String] = []
-
 class JuegoViewController:  UIViewController {
     let endpoint = URL(string: "https://dog.ceo/api/breeds/image/random")
     struct image:Codable {
@@ -31,6 +28,7 @@ class JuegoViewController:  UIViewController {
         showImages(count)
     }
     
+    //llama a una url que se encuntra en el array de imagenes para poder cargarla en la aplicación
     func cargarImagenDesdeURL(_ urlString: String) {
         guard let url = URL(string: urlString) else {
             print("URL inválida")
@@ -51,14 +49,16 @@ class JuegoViewController:  UIViewController {
         }.resume()
     }
     
+    
+    //muestra la secuencia de imagenes que el usuario tiene que memorizar
     func showImages(_ i: Int) {
         if i == 6 {
             ResolverButton.isHidden = false
-            images.shuffle()
+            Utils.images.shuffle()
             return
         }
-        imagesCorrectas.append(images[i])
-        let urlString = imagesCorrectas[i]
+        Utils.imagesCorrectas.append(Utils.images[i])
+        let urlString = Utils.imagesCorrectas[i]
         cargarImagenDesdeURL(urlString)
         let deadlineTime = DispatchTime.now() + .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
@@ -66,7 +66,8 @@ class JuegoViewController:  UIViewController {
             self.showImages(self.count)
         }
     }
-
+    
+    //Llamada a la API https://dog.ceo/api/breeds/image/random, hace 11 peticiones y en cada petición añade la url de la imagen al array images
     func CallApi(){
         for _ in 0...10{
             guard let UrlEndpoint = endpoint else {return}
@@ -80,7 +81,7 @@ class JuegoViewController:  UIViewController {
                           do{
                             let tasks = try decoder.decode(image.self, from: data)
                             DispatchQueue.main.async {
-                                images.append(tasks.message)
+                                Utils.images.append(tasks.message)
                             }
                           }catch{
                             print(error)
